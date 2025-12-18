@@ -373,8 +373,7 @@ struct LCAppBanner : View {
 
     
     func copyLaunchUrl() {
-        let urlSchemes = appInfo.urlSchemes() // NSMutableArray?
-        let selectedUrlScheme = (urlSchemes?.firstObject as? String) ?? "livecontainer"
+        let selectedUrlScheme = UserDefaults.lcAppURLScheme() ?? "livecontainer"
         if let fn = model.uiSelectedContainer?.folderName {
             UIPasteboard.general.string = "\(selectedUrlScheme)://livecontainer-launch?bundle-name=\(appInfo.relativeBundlePath!)&container-folder-name=\(fn)"
         } else {
