@@ -255,12 +255,12 @@ uint32_t dyld_get_sdk_version(const struct mach_header* mh);
 
 - (NSDictionary *)generateWebClipConfigWithContainerId:(NSString*)containerId {
     NSString* appClipUrl;
-    NSMutableArray* urlSchemes = [self urlSchemes];
-    NSString* selectedUrlScheme = urlSchemes.count > 0 ? urlSchemes[0] : nil;
+    NSArray *urlSchemes = [self urlSchemes];
+    NSString *selectedUrlScheme = urlSchemes.count > 0 ? (NSString *)urlSchemes.firstObject : @"livecontainer";
     if(containerId) {
-        appClipUrl = [NSString stringWithFormat:@"%@://livecontainer-launch?bundle-name=%@&container-folder-name=%@", selectedUrlScheme ?: @"livecontainer", self.bundlePath.lastPathComponent, containerId];
+        appClipUrl = [NSString stringWithFormat:@"%@://livecontainer-launch?bundle-name=%@&container-folder-name=%@", selectedUrlScheme, self.bundlePath.lastPathComponent, containerId];
     } else {
-        appClipUrl = [NSString stringWithFormat:@"%@://livecontainer-launch?bundle-name=%@", selectedUrlScheme ?: @"livecontainer", self.bundlePath.lastPathComponent];
+        appClipUrl = [NSString stringWithFormat:@"%@://livecontainer-launch?bundle-name=%@", selectedUrlScheme, self.bundlePath.lastPathComponent];
     }
     
     NSDictionary *payload = @{
