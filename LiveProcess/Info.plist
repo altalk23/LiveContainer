@@ -8,10 +8,10 @@
 	<array>
 		<dict>
 			<key>CFBundleURLName</key>
-			<string>com.kdt.livecontainerc.extensionurlscheme</string>
+			<string>com.kdt.livecontainerb.extensionurlscheme</string>
 			<key>CFBundleURLSchemes</key>
 			<array>
-				<string>liveprocessc</string>
+				<string>liveprocessb</string>
 			</array>
 		</dict>
 	</array>
